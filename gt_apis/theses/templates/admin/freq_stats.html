@@ -1,0 +1,71 @@
+{% extends 'admin/base_site.html' %}
+
+{% block content %}
+<h1>THỐNG KÊ THÔNG TIN CÁC KHOÁ HỌC THEO DANH MUC</h1>
+
+<!-- Form for selecting a faculty -->
+<form method="GET" >
+    <div>
+        <label for="faculty">Chọn khoa:</label>
+<!--        value="{% if faculty_id %}{{ faculty_id_name }}{% else %}&#45;&#45;Chọn ngành&#45;&#45;{% endif %}"-->
+
+        <select name="faculty_id" id="faculty"  onchange="this.form.submit()">
+            <option value="">&#45;&#45;Các ngành&#45;&#45;</option>
+            {% for faculty in faculties %}
+            <option value="{{ faculty.id }}" {% if request_faculty_id == faculty.id %}selected{% endif %}>
+                {{ faculty.ten_nganh }}
+            </option>
+            {% endfor %}
+        </select>
+<!--        <script>-->
+<!--                let selectElement = document.getElementById('faculty');-->
+<!--                selectElement.value = "{{ faculty_id_name }}"-->
+<!--        </script>-->
+    </div>
+</form>
+
+<!--<ul>-->
+<!--    {% for f in freq_stats %}-->
+<!--    <li><strong>{{ f.id }} - {{ f.ten_nganh }}</strong> có {{ f.freq }} lần trong năm {{ f.created_date.year }}</li>-->
+<!--    {% endfor %}-->
+<!--</ul>-->
+
+<div style="width: 50%">
+    <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    let labels = [];
+    let data = [];
+
+    {% for f in freq_stats %}
+        labels.push('{{ f.ten_nganh }}');
+        data.push({{ f.freq }}); // Ensure numerical data is correctly parsed
+    {% endfor %}
+
+    window.onload = function() {
+        const ctx = document.getElementById('myChart');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Frequency',
+                    data: data,
+                    borderWidth: 1,
+                    backgroundColor: ['red', 'green', 'blue']
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+</script>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "admin/index.html" %}
+{% block content %}
+    {{ block.super }}
+    <h2>Custom Stats</h2>
+    <ul>
+        <li><a href="{% url 'admin:score_stats' %}">Thống kê điểm</a></li>
+        <li><a href="{% url 'admin:freq_stats' %}">Thống kê tần suất</a></li>
+    </ul>
+{% endblock %}

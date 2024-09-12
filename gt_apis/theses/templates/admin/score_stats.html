@@ -1,0 +1,66 @@
+{% extends 'admin/base_site.html' %}
+
+{% block content %}
+<h1>THỐNG KÊ THÔNG TIN CÁC KHOÁ HỌC THEO DANH MUC</h1>
+<h2>{% if request_id == 6 %}hello{% endif %}</h2>
+<form method="GET" >
+    <div>
+        <label for="year">Chọn năm:</label>
+        <select name="year" id="year"  onchange="this.form.submit()">
+            <option value="">--Các năm--</option>
+            {% for year in years %}
+            <option value="{{ year }}" {% if request_year == year %}selected{% endif %}>
+                {{ year }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+</form>
+<!--<ul>-->
+<!--    {% for c in average_scores %}-->
+<!--    <li><strong>{{ c.id }} - {{ c.ten_khoa_luan }}</strong> có {{ c.average_score }} điểm trong năm {{ c.created_date.year }}</li>-->
+<!--    {% endfor %}-->
+<!--</ul>-->
+
+<div style="width: 50%">
+    <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    let labels = [];
+    let data = [];
+
+    {% for c in average_scores %}
+        labels.push('{{ c.ten_khoa_luan }}');
+        {% if c.average_score == None %}
+            data.push(0);
+        {% else %}
+            data.push({{ c.average_score }}); // Ensure numerical data is correctly parsed
+        {% endif %}
+    {% endfor %}
+
+    window.onload = function() {
+        const ctx = document.getElementById('myChart');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Average Score',
+                    data: data,
+                    borderWidth: 1,
+                    backgroundColor: ['red', 'green', 'blue']
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+</script>
+{% endblock %}

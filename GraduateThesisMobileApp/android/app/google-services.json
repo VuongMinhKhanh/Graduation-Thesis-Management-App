@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "526031833879",
+    "project_id": "graduate-thesis-app",
+    "storage_bucket": "graduate-thesis-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526031833879:android:4450f7d7e51444cf48c552",
+        "android_client_info": {
+          "package_name": "com.anonymous.ecoursemobilev1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUaS1tYXlklbC8_uERFc8tE-UxU7PvjD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526031833879:android:4078a975436d606948c552",
+        "android_client_info": {
+          "package_name": "com.company.graduatethesis"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUaS1tYXlklbC8_uERFc8tE-UxU7PvjD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
