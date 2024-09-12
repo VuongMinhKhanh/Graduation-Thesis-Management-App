@@ -7,7 +7,7 @@ This project is a Graduation Thesis Management System built using Django (backen
 - User role management (Admin, Faculty, Student)
 - Thesis creation and management
 - Review board setup and grading
-- Notification via email/SMS
+- Notification via email
 - Statistics and reports
 - Real-time chat using Firebase
 
