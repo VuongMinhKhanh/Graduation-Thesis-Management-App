@@ -15,15 +15,17 @@ This project is a Graduation Thesis Management System built using Django (backen
 
 - Python 3.x
 - Node.js
-- MySQL - Workbench
+- MySQL Workbench
 - Firebase account
+
+## ERD for Database (only self-configured classes)
+![image](https://github.com/user-attachments/assets/828c1a1f-77e4-498a-a32b-36b2215ba21b)
 
 ## Setup
 
 ### Backend (Django) - Used for local testing (as I deployed the backend to pythonanywhere)
 
 1. **Clone the repository**:
-
    ```bash
    git clone https://github.com/VuongMinhKhanh/Graduation-Thesis-Management-App
    ```
@@ -33,4 +35,47 @@ This project is a Graduation Thesis Management System built using Django (backen
     python -m venv env
     source env/bin/activate  # On Windows use `env\Scripts\activate`
     ```
-4. 
+
+3. **Install dependencies**:
+   ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Database Configuration**:
+- Ensure MySQL Woprkbench is installed and running on your machine.
+- Create a database for the project based on DATABASE dictionary in settings.py file.
+
+5. **Run migrations**:
+   ```bash
+   python manage.py migrate
+   ```
+6. **Create a superuser**:
+   ```bash
+   python manage.py createsuperuser
+   ```
+7. **Start the development server**:
+   ```bash
+   python manage.py runserver <your-current-IP>:8000
+   ```
+
+### Frontend (React Native)
+1. **Navigate to the frontend directory**:
+   ```bash
+   cd ../GraduateThesisMobileApp
+   ```
+
+2. **Install dependencies**:
+    ```bash
+    npm install
+    ```
+
+3. **Start the React Native app**:
+   If you use local backend, please adjust the BASE_URL to your current IP. 
+    ```bash
+    npm start
+    ```
+    And chose suitable platform for the frontend.
+
+### Firebase Setup
+- Configure Firebase for real-time chat functionality.
+- Obtain your Firebase configuration and integrate it into the React Native app.
