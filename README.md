@@ -13,8 +13,7 @@ This project is a Graduation Thesis Management System built using Django (backen
 
 ## Prerequisites
 
-- Python 3.x
-- Node.js
+- Python 3.x - Django
 - MySQL Workbench
 - Firebase account
 
