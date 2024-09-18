@@ -1,6 +1,6 @@
 # Graduation Thesis Management System
 
-This project is a Graduation Thesis Management System built using Django (backend) and React Native (frontend). The system allows management of users, theses, review boards, and grading, with role-based access control.
+This project is a Graduation Thesis Management System built using Django Rest Framework (backend), OAuth2 for authenication - permissions and React Native (frontend). The system allows management of users, theses, review boards, and grading, with role-based access control.
 
 ## Features
 
