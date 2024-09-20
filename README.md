@@ -10,6 +10,7 @@ This project is a Graduation Thesis Management System built using Django Rest Fr
 - Notification via email
 - Statistics and reports
 - Real-time chat using Firebase
+- API Integration: Integrated with external APIs for email service and chat functionalities, allowing seamless communication and notifications.
 
 ## Prerequisites
 
